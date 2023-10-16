@@ -25,6 +25,12 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "e71011a8-d9cf-4d0f-9ae8-015b48ce06a7"
+      }
+    },
+    "owner": "fridgemate"
   }
 }
