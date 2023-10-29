@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "fridgemate",
-    "slug": "fridgemate",
+    "name": "frontend-app",
+    "slug": "frontend-app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -25,12 +25,6 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    },
-    "extra": {
-      "eas": {
-        "projectId": "e71011a8-d9cf-4d0f-9ae8-015b48ce06a7"
-      }
-    },
-    "owner": "fridgemate"
+    }
   }
 }
