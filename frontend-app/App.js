@@ -12,15 +12,15 @@ const Stack = createNativeStackNavigator();
 export default function App() {
 
   return (
-    // <View className="flex-1 items-center justify-center bg-white">
-    //   <Login />
-    //   <StatusBar style="auto" />
-    // </View>
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName='Login'>
-        <Stack.Screen name='Login' component={Login} />
-        <Stack.Screen name='Home' component={Home} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <View className="flex-1 items-center justify-center bg-white">
+      <Login />
+      <StatusBar style="auto" />
+    </View>
+    // <NavigationContainer>
+    //   <Stack.Navigator initialRouteName='Login'>
+    //     <Stack.Screen name='Login' component={Login} />
+    //     <Stack.Screen name='Home' component={Home} />
+    //   </Stack.Navigator>
+    // </NavigationContainer>
   );
 }
