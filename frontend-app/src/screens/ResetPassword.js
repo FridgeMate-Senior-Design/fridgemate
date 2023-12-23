@@ -5,36 +5,26 @@ import { useNavigation } from '@react-navigation/native';
 import { useForm, Controller } from "react-hook-form";
 import CustomInput from '../components/CustomInput';
 
-const Login = (props) => {
+const ResetPassword = (props) => {
 
     const navigation = useNavigation();
 
     const {control, handleSubmit, formState: {errors}} = useForm();
 
-    const login = (data) => {
-        console.log("Log In");
+    const handleSendCode = (data) => {
+        console.log("Send Code");
         // validate user
-        navigation.navigate('Home');
+        navigation.navigate('NewPassword');
     };    
 
-    // const forgotPassword = () => {
-    //     console.log("Forgot Password");
-    // }
-
-    const signUp = () => {
-        console.log("Sign Up");
-        navigation.navigate('Signup');
-    }
-
-    const forgotPassword = () => {
-        console.log("Forgot Password");
-        navigation.navigate('ResetPassword');
+    const login = () => {
+        navigation.navigate('Login');
     }
 
     return (
         <View className="flex-1 items-center justify-center bg-white w-screen">
             <View className="mb-10">
-                <Text className="text-5xl">Login</Text>
+                <Text className="text-5xl">Reset Password</Text>
             </View>
 
             <View className="w-full max-w">
@@ -59,40 +49,15 @@ const Login = (props) => {
                             }}
                         />
                     </View>
-                    <View className="mb-6">
-                        <Text className="block text-gray-700 text-sm font-bold mb-2" for="password">
-                            Password
-                        </Text>
-                        <CustomInput
-                            control={control}
-                            name="password"
-                            placeholder="Password"
-                            id="password"
-                            type="password"
-                            secureTextEntry={true}
-                            rules={{
-                                required: 'Password is required', minLength: {
-                                    value: 8, 
-                                    message: 'Password must be at least 8 characters long'
-                                }
-                            }}
-                        />
-                    </View>
-
                     <View className="flex items-center justify-between space-y-4">
-                        <Pressable className="bg-blue-500 font-bold py-3 w-full rounded items-center" onPress={handleSubmit(login)}>
+                        <Pressable className="bg-blue-500 font-bold py-3 w-full rounded items-center" onPress={handleSubmit(handleSendCode)}>
                             <Text className="text-white">
-                                Submit
+                                Send Code  
                             </Text>
                         </Pressable>
-                        <Pressable className="bg-white font-bold py-3 w-full rounded items-center" onPress={handleSubmit(forgotPassword)}>
+                        <Pressable className="bg-white font-bold py-3 w-full rounded items-center" onPress={login}>
                             <Text className="text-gray-600">
-                                Forgot Password?
-                            </Text>
-                        </Pressable>
-                        <Pressable className="bg-white font-bold py-3 w-full rounded items-center" onPress={signUp}>
-                            <Text className="text-gray-600">
-                                Don't have an account? Sign up!
+                                Back to Login
                             </Text>
                         </Pressable>
                     </View>
@@ -103,4 +68,4 @@ const Login = (props) => {
     )
 }
 
-export default Login;
+export default ResetPassword;
