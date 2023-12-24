@@ -20,7 +20,8 @@ const Signup = (props) => {
         navigation.navigate('Login');
     }
 
-    const {control, handleSubmit, formState: {errors}} = useForm();
+    const {control, handleSubmit, watch, formState: {errors}} = useForm();
+    const password = watch('password', '')
 
     return (
         <View className="flex-1 items-center justify-center bg-white w-screen">
@@ -42,7 +43,15 @@ const Signup = (props) => {
                             type="text" 
                             secureTextEntry={false} 
                             rules={{
-                                required: 'Username is required'
+                                required: 'Username is required',
+                                minLength: {
+                                    value: 4, 
+                                    message: 'Username must be at least 4 characters long'
+                                },
+                                maxLength: {
+                                    value: 20, 
+                                    message: 'Username must be at most 20 characters long'
+                                }
                             }}
                         />
                     </View>
@@ -82,6 +91,22 @@ const Signup = (props) => {
                                     value: 8, 
                                     message: 'Password must be at least 8 characters long'
                                 }
+                            }}
+                        />
+                    </View>
+                    <View className="mb-6">
+                        <Text className="block text-gray-700 text-sm font-bold mb-2" for="password">
+                            Re-enter Password
+                        </Text>
+                        <CustomInput
+                            control={control}
+                            name="password-repeat"
+                            placeholder="Password"
+                            id="password-repeat"
+                            type="password-repeat"
+                            secureTextEntry={true}
+                            rules={{
+                                validate: value => value === password || "Passwords do not match"
                             }}
                         />
                     </View>

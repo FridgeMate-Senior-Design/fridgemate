@@ -9,7 +9,8 @@ const NewPassword = (props) => {
 
     const navigation = useNavigation();
 
-    const {control, handleSubmit, formState: {errors}} = useForm();
+    const {control, handleSubmit, watch, formState: {errors}} = useForm();
+    const password = watch('password', '')
 
     const handleResetPassword = (data) => {
         navigation.navigate('Login');
@@ -59,6 +60,22 @@ const NewPassword = (props) => {
                                     value: 8, 
                                     message: 'Password must be at least 8 characters long'
                                 }
+                            }}
+                        />
+                    </View>
+                    <View className="mb-6">
+                        <Text className="block text-gray-700 text-sm font-bold mb-2" for="password">
+                            Re-enter Password
+                        </Text>
+                        <CustomInput
+                            control={control}
+                            name="password-repeat"
+                            placeholder="Password"
+                            id="password-repeat"
+                            type="password-repeat"
+                            secureTextEntry={true}
+                            rules={{
+                                validate: value => value === password || "Passwords do not match"
                             }}
                         />
                     </View>
